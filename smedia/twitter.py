@@ -1,8 +1,8 @@
+import twitter
 
 
 class Twitter:
-    def twitter_set_keys(self):
-        pass
 
-    def twitter_get_profile(self, profile):
-        return "You got it chief, one profile of {} coming up".format(profile)
+    def twitter_get_profile(self, profile, api):
+
+        return api.GetUser(screen_name=profile)

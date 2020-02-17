@@ -1,13 +1,16 @@
 from smedia.twitter import Twitter
+import twitter
 
 
-class __KeyManager:
-    def __init__(self, *__key_file):
+class KeyManager:
 
-        self.key_file = __key_file
-
-        self.__twitter_keys = []
+    twitter_keys = {"consumer_key": "", "consumer_secret": "", "access_key": "", "access_secret": ""}
 
 
 class AnonFinder(Twitter):
-    pass
+    def __init__(self):
+        self.twitter = twitter.Api(consumer_key=KeyManager.twitter_keys["consumer_key"],
+                                   consumer_secret=KeyManager.twitter_keys["consumer_secret"],
+                                   access_token_key=KeyManager.twitter_keys["access_key"],
+                                   access_token_secret=KeyManager.twitter_keys["access_secret"])
+
